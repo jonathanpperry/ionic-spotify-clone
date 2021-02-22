@@ -1,4 +1,4 @@
-package com.getcapacitor.myapp;
+package io.jonnyramen.ionicspotify;
 
 import android.os.Bundle;
 
