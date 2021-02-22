@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import recentlyPlayed from '../../assets/mockdata/recentlyPlayed.json';
 import heavyRotation from '../../assets/mockdata/heavyRotation.json';
 import jumpBackIn from '../../assets/mockdata/jumpBackIn.json';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -28,10 +29,16 @@ export class Tab1Page {
     sliderPerView: 2.4,
     slidesOffsetBefore: 20,
     spaceBetween: 20,
-    freeMode: true
-  }
+    freeMode: true,
+  };
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  openAlbum(album) {
+    const titleEscaped = encodeURIComponent(album.title);
+    this.router.navigateByUrl(`/tabs/tab1/${titleEscaped}`);
+
+  }
 
   // Image names
   dasherize(string) {
